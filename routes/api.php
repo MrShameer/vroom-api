@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Vehicle\VehicleController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,3 +29,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/carlist', [VehicleController::class, 'carlist']);
 
 Route::get('/bikelist', [VehicleController::class, 'bikelist']);
+
+Route::get('/bicyclelist', [VehicleController::class, 'bicyclelist']);
+
+Route::get('/vanlist', [VehicleController::class, 'vanlist']);
+
+// Route::get('/info', [UserController::class, 'info']);
+
+Route::middleware('auth')->get('/validatetoken', function(){
+    return '200';
+});
