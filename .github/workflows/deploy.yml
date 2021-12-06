@@ -18,7 +18,7 @@ jobs:
           username: ${{secrets.SSH_USERNAME}}
           script: |
             cd /var/www/html
-            git clone git@github.com:MrShameer/vroom-api.git .
+            git clone git@github.com:MrShameer/vroom-api.git
             echo 'dah siappp'
 
       - name: Install Dependencies
