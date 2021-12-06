@@ -1,31 +1,28 @@
-
-name: BUILD & DEPLOY
+name: Deploy Laravel Api
 on:
-  push:
-    branches: [ main ]
-  #pull_request:
-    #branches: [ main ]
-    
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+	push:
+		branches: [ main ]
+	#pull_request:
+		#branches: [ main ]
+		
 jobs:
-  # This workflow contains a single job called "build"
-  deploy:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+	deploy:
+		runs-on: ubuntu-latest
+		steps:
+			- name: Push to Server
+				#uses: actions/checkout@v2
+				uses: appleboy/ssh-action@v0.1.2
+				with:
+					host: ${{secrets.SSH_HOST}}
+					key: ${{secrets.SSH_KEY}}
+					username: ${{secrets.SSH_USERNAME}}
+					script: |
+						cd /var/www/html
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Deploy Laravel Api
-        #uses: actions/checkout@v2
-        uses: appleboy/ssh-action@v0.1.2
-        with:
-          host: ${{secrets.SSH_HOST}}
-          key: ${{secrets.SSH_KEY}}
-          username: ${{secrets.SSH_USERNAME}}
+						git clone git@github.com:MrShameer/vroom-api.git .
+						echo 'dah siappp'
 
-          script: |
-            cd /var/www/html
-            git clone git@github.com:MrShameer/vroom-api.git
-            echo 'dah siappp'
+			- name: Install Dependencies
+				run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+			- name: Generate key
+				run: php artisan key:generate
