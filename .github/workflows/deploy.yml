@@ -19,7 +19,7 @@ jobs:
           script: |
             cd /var/www/html
             git clone git@github.com:MrShameer/vroom-api.git .
-            compuser install
+            composer install
             echo 'dah siappp'
       
 #       - name: Install Dependencies
