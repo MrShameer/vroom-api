@@ -25,6 +25,12 @@ class AuthController extends Controller
                     'password' => Hash::make($validatedData['password']),
         ]);
 
+		if(!$user->exists){
+			return response()->json([
+				'message' => 'Cannot register'
+			], 401);
+		}
+
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
@@ -53,7 +59,7 @@ class AuthController extends Controller
 
         return response()->json([
             'access_token' => $token,
-            'token_type' => 'Bearer',
+            'token_type' => 'Bearers',
             'role' => $user->role
         ]);
     }
