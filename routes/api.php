@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Vehicle\VehicleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StatusController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,11 +21,21 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
+//Route::middleware('auth:sanctum')->post('/login', [AuthController::class, 'login']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+
+//Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
+
+
+Route::middleware('auth:sanctum')->post('/validate', function (Request $request) {
     return $request->user();
 });
+
+// Route::group(['middleware' => ['auth:sanctum']], function () {
+//     Route::get('/us', function(Request $request) {
+//         return auth()->user();
+//     });
+// });
 
 Route::get('/carlist', [VehicleController::class, 'carlist']);
 
@@ -34,8 +45,8 @@ Route::get('/bicyclelist', [VehicleController::class, 'bicyclelist']);
 
 Route::get('/vanlist', [VehicleController::class, 'vanlist']);
 
-// Route::get('/info', [UserController::class, 'info']);
+Route::post('/status', [StatusController::class, 'list']);
 
-Route::middleware('auth')->get('/validatetoken', function(){
-    return '200';
-});
+// Route::middleware('auth')->get('/validatetoken', function(){
+//     return '200';
+// });

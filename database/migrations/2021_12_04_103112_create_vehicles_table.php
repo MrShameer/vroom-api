@@ -17,7 +17,7 @@ class CreateVehiclesTable extends Migration
             // $table->id();
             // $table->timestamps();
             $table->foreignId('owner')->constrained('users')->onDelete('cascade');
-            $table->string('plat')->unique();
+            $table->string('plat')->primary();
             $table->enum('type', ['car', 'bike','bicycle','van']);
             $table->string('brand');
             $table->string('model');
