@@ -27,9 +27,25 @@ Route::post('/login', [AuthController::class, 'login']);
 //Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
 
 
-Route::middleware('auth:sanctum')->post('/validate', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->post('/validate', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::middleware('auth:sanctum')->group(function() {
+    Route::post('/uploadimage', [UserController::class, 'uploadImage']);
+    Route::post('/validate', function (Request $request) {
+        return $request->user();
+    });
+    // Route::post('/getimage', function (Request $request) {
+    //     return response()->file('storage/picture/profile/'.$request->user()->id.'.png');
+    // });
+
+    Route::post('/getimage', [UserController::class, 'getImage']);
+    Route::post('/status', [StatusController::class, 'list']);
 });
+
+
+
 
 // Route::group(['middleware' => ['auth:sanctum']], function () {
 //     Route::get('/us', function(Request $request) {
@@ -45,7 +61,7 @@ Route::get('/bicyclelist', [VehicleController::class, 'bicyclelist']);
 
 Route::get('/vanlist', [VehicleController::class, 'vanlist']);
 
-Route::post('/status', [StatusController::class, 'list']);
+
 
 // Route::middleware('auth')->get('/validatetoken', function(){
 //     return '200';

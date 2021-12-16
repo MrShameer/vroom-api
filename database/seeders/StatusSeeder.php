@@ -40,5 +40,19 @@ class StatusSeeder extends Seeder
             'status' => 'accepted',
             'message' => 'otak ko la kereta rosak dah'
         ]);
+
+        DB::table('status')->insert([
+            'lessee' => '3',
+            'plat' => 'FDG346', 
+            'status' => 'rejected',
+            'message' => 'wth bro'
+        ]);
+
+        DB::table('status')->insert([
+            'lessee' => '3',
+            'plat' => 'JMK453', 
+            'status' => 'pending',
+            'message' => 'Jap Eh'
+        ]);
     }
 }
