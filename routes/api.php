@@ -53,13 +53,13 @@ Route::middleware('auth:sanctum')->group(function() {
 //     });
 // });
 
-Route::get('/carlist', [VehicleController::class, 'carlist']);
+Route::post('/carlist', [VehicleController::class, 'carlist']);
 
-Route::get('/bikelist', [VehicleController::class, 'bikelist']);
+Route::post('/bikelist', [VehicleController::class, 'bikelist']);
 
-Route::get('/bicyclelist', [VehicleController::class, 'bicyclelist']);
+Route::post('/bicyclelist', [VehicleController::class, 'bicyclelist']);
 
-Route::get('/vanlist', [VehicleController::class, 'vanlist']);
+Route::post('/vanlist', [VehicleController::class, 'vanlist']);
 
 
 
