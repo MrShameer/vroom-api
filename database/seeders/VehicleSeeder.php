@@ -75,7 +75,7 @@ class VehicleSeeder extends Seeder
         ]);
 
         DB::table('vehicles')->insert([
-            'owner' => '3',
+            'owner' => '8',
             'plat' => 'KJS345', 
             'type' => 'bike',
             'brand' => 'honda',

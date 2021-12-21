@@ -6,52 +6,27 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Vehicle\VehicleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StatusController;
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+use App\Http\Controllers\ChatController;
 
 Route::post('/register', [AuthController::class, 'register']);
 
+Route::get('email/verify/{id}',[AuthController::class, 'verify'])->name('verification.verify');
+Route::get('email/resend', [AuthController::class, 'resend'])->name('verification.resend');
+
 Route::post('/login', [AuthController::class, 'login']);
 
-//Route::middleware('auth:sanctum')->post('/login', [AuthController::class, 'login']);
-
-
-//Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
-
-
-// Route::middleware('auth:sanctum')->post('/validate', function (Request $request) {
-//     return $request->user();
-// });
-
-Route::middleware('auth:sanctum')->group(function() {
+Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::post('/uploadimage', [UserController::class, 'uploadImage']);
     Route::post('/validate', function (Request $request) {
         return $request->user();
     });
-    // Route::post('/getimage', function (Request $request) {
-    //     return response()->file('storage/picture/profile/'.$request->user()->id.'.png');
-    // });
-
     Route::post('/getimage', [UserController::class, 'getImage']);
     Route::post('/status', [StatusController::class, 'list']);
+
+    Route::post('/send', [ChatController::class, 'send']);
+    Route::post('/chatroom', [ChatController::class, 'list']);
+    Route::post('/message', [ChatController::class, 'messages']);
 });
-
-
-
-
-// Route::group(['middleware' => ['auth:sanctum']], function () {
-//     Route::get('/us', function(Request $request) {
-//         return auth()->user();
-//     });
-// });
 
 Route::post('/carlist', [VehicleController::class, 'carlist']);
 
@@ -60,9 +35,3 @@ Route::post('/bikelist', [VehicleController::class, 'bikelist']);
 Route::post('/bicyclelist', [VehicleController::class, 'bicyclelist']);
 
 Route::post('/vanlist', [VehicleController::class, 'vanlist']);
-
-
-
-// Route::middleware('auth')->get('/validatetoken', function(){
-//     return '200';
-// });

@@ -15,15 +15,19 @@ class AuthController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-                    'email' => 'required|string|email|max:255|unique:users',
-                    'password' => 'required|string|min:8',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+            'fcm' => 'required|string',
         ]);
 
         $user = User::create([
             'name' => $validatedData['name'],
-                    'email' => $validatedData['email'],
-                    'password' => Hash::make($validatedData['password']),
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']),
+            'fcm' => $validatedData['fcm'],
+
         ]);
+        $user->sendEmailVerificationNotification();
 
 		if(!$user->exists){
 			return response()->json([
@@ -37,6 +41,25 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type' => 'Bearer',
         ]);
+    }
+
+    public function verify($user_id, Request $request) {
+        if (!$request->hasValidSignature()) {
+            return response()->json(["msg" => "Invalid/Expired url provided."], 401);
+        }
+        $user = User::findOrFail($user_id);
+        if (!$user->hasVerifiedEmail()) {
+            $user->markEmailAsVerified();
+        }
+        return redirect()->to('/');
+    }
+
+    public function resend() {
+        if (auth()->user()->hasVerifiedEmail()) {
+            return response()->json(["msg" => "Email already verified."], 400);
+        }
+        auth()->user()->sendEmailVerificationNotification();
+        return response()->json(["msg" => "Email verification link sent on your email id"]);
     }
 
 
@@ -55,9 +78,16 @@ class AuthController extends Controller
 
         $user = User::where('email', $request['email'])->firstOrFail();
 
+        if (!$user->hasVerifiedEmail()) {
+            return response()->json([
+                'message' => 'Please verify your email'
+            ], 401);
+        }
+
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
+            'id' => $user->id,
             'access_token' => $token,
             'token_type' => 'Bearer',
             'role' => $user->role

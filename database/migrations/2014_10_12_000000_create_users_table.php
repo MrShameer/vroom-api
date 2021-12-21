@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->enum('role', ['lessor', 'lessee'])->default('lessee');
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
+            $table->string('fcm')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

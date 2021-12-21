@@ -21,7 +21,7 @@ class StatusSeeder extends Seeder
             // $table->mediumText('message')->nullable();
 
         DB::table('status')->insert([
-            'lessee' => '3',
+            'lessee' => '11',
             'plat' => 'JMK567', 
             'status' => 'accepted',
             'message' => 'otak ko la kereta rosak dah'
@@ -35,21 +35,21 @@ class StatusSeeder extends Seeder
         ]);
 
         DB::table('status')->insert([
-            'lessee' => '3',
-            'plat' => 'JMK567', 
+            'lessee' => '11',
+            'plat' => 'KJS345', 
             'status' => 'accepted',
             'message' => 'otak ko la kereta rosak dah'
         ]);
 
         DB::table('status')->insert([
-            'lessee' => '3',
+            'lessee' => '11',
             'plat' => 'FDG346', 
             'status' => 'rejected',
             'message' => 'wth bro'
         ]);
 
         DB::table('status')->insert([
-            'lessee' => '3',
+            'lessee' => '11',
             'plat' => 'JMK453', 
             'status' => 'pending',
             'message' => 'Jap Eh'
