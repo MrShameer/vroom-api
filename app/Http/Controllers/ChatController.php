@@ -17,16 +17,23 @@ use App\Http\Resources\UserTwoResource;
 class ChatController extends Controller
 {
     public function send(Request $request){
+        $fcm = User::where('id',$request['to'])->pluck('fcm')->first();
         $response = Http::withHeaders([
            // 'Authorization' => $this->authorization, //$_ENV['FSM_KEY']
            'Authorization' => config('services.firebase.key'),
             'Content-Type' => 'application/json',
             ])->post(config('services.firebase.url'), [
-                'to' => $request['to'],
+                'to' => $fcm,
                 'data' => [
                     'title' => $request->user()->name,
                     'body' => $request['message'],
                 ],
+            ]);
+            $message = Message::create([
+                'chatroom' => $request['chatid'],
+                'sender' => $request['to'],
+                'message' => $request['message'],
+    
             ]);
         return $response;
     }
