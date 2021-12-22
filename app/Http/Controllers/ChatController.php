@@ -18,8 +18,8 @@ class ChatController extends Controller
 {
     public function send(Request $request){
         $fcm = User::where('id',$request['to'])->pluck('fcm')->first();
+
         $response = Http::withHeaders([
-           // 'Authorization' => $this->authorization, //$_ENV['FSM_KEY']
            'Authorization' => config('services.firebase.key'),
             'Content-Type' => 'application/json',
             ])->post(config('services.firebase.url'), [
@@ -29,14 +29,23 @@ class ChatController extends Controller
                     'body' => $request['message'],
                 ],
             ]);
-            $message = Message::create([
-                'chatroom' => $request['chatid'],
-                'sender' => $request['to'],
-                'message' => $request['message'],
-    
+
+        $chatroom = Chatrooms::where('id',$request['chatid'])->first();
+        if($chatroom=== null){
+            $chatroom = Chatrooms::create([
+                'user_one' => $request->user()->id,
+                'user_two' => $request['to'],
             ]);
+        }
+        $message = Message::create([
+            'chatroom' => $request['chatid'],
+            'sender' => $request['to'],
+            'message' => $request['message'],
+        ]);
+  
         return $response;
     }
+    
     public function list(Request $request){//wait haven't clean the code yet
         $id=$request->user()->id;
         $user_one = Chatrooms::where('user_two', $id)->with('user_one:id,name,email,phone','message')->get(['id','user_one']);

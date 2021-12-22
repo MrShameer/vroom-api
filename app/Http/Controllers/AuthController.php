@@ -17,15 +17,12 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'fcm' => 'required|string',
         ]);
 
         $user = User::create([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
-            'fcm' => $validatedData['fcm'],
-
         ]);
         $user->sendEmailVerificationNotification();
 
@@ -83,6 +80,8 @@ class AuthController extends Controller
                 'message' => 'Please verify your email'
             ], 401);
         }
+
+        User::where('email', $request['email'])->update(['fcm' => $request['fcm']]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
 

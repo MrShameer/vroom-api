@@ -11,6 +11,12 @@ class Chatrooms extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_one',
+        'user_two',
+        'created_at',
+    ];
+
     public function user_one()
     {
         return $this->belongsTo(User::class, 'user_one');
@@ -25,4 +31,5 @@ class Chatrooms extends Model
     {
         return $this->hasMany(Message::class, 'chatroom');
     }
+    
 }
