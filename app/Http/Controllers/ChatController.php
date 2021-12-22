@@ -28,6 +28,10 @@ class ChatController extends Controller
                     'title' => $request->user()->name,
                     'body' => $request['message'],
                 ],
+                'notification' => [
+                    'title' => $request->user()->name,
+                    'body' => $request['message'],
+                ],
             ]);
 
         $chatroom = Chatrooms::where('id',$request['chatid'])->first();
@@ -38,14 +42,14 @@ class ChatController extends Controller
             ]);
         }
         $message = Message::create([
-            'chatroom' => $request['chatid'],
-            'sender' => $request['to'],
+            'chatroom' => $chatroom->id,
+            'sender' => $request->user()->id,
             'message' => $request['message'],
         ]);
   
         return $response;
     }
-    
+
     public function list(Request $request){//wait haven't clean the code yet
         $id=$request->user()->id;
         $user_one = Chatrooms::where('user_two', $id)->with('user_one:id,name,email,phone','message')->get(['id','user_one']);

@@ -18,7 +18,7 @@ class UserOneResource extends JsonResource
             'chatid' => $this->id,
             'name' => $this->user_one()->pluck('name')->first(),
             'phone' => $this->user_one()->pluck('phone')->first(),
-            'message' => $this->message()->orderBy('created_at')->pluck('message')->first(),
+            'message' => $this->message()->orderBy('updated_at')->pluck('message')->last(),
         ];
     }
 }
