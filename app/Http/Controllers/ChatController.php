@@ -19,20 +19,7 @@ class ChatController extends Controller
     public function send(Request $request){
         $fcm = User::where('id',$request['to'])->pluck('fcm')->first();
 
-        $response = Http::withHeaders([
-           'Authorization' => config('services.firebase.key'),
-            'Content-Type' => 'application/json',
-            ])->post(config('services.firebase.url'), [
-                'to' => $fcm,
-                'data' => [
-                    'title' => $request->user()->name,
-                    'body' => $request['message'],
-                ],
-                'notification' => [
-                    'title' => $request->user()->name,
-                    'body' => $request['message'],
-                ],
-            ]);
+        
 
         $chatroom = Chatrooms::where('id',$request['chatid'])->first();
         if($chatroom=== null){
@@ -46,6 +33,21 @@ class ChatController extends Controller
             'sender' => $request->user()->id,
             'message' => $request['message'],
         ]);
+
+        $response = Http::withHeaders([
+            'Authorization' => config('services.firebase.key'),
+             'Content-Type' => 'application/json',
+             ])->post(config('services.firebase.url'), [
+                 'to' => $fcm,
+                 'data' => [
+                     'title' => $chatroom->id,
+                     'body' => $request['message'],
+                 ],
+                 'notification' => [
+                     'title' => $request->user()->name,
+                     'body' => $request['message'],
+                 ],
+             ]);
   
         return $response;
     }
