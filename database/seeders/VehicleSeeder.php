@@ -103,5 +103,6 @@ class VehicleSeeder extends Seeder
             'gallon' => '5',
             'rent' => '5'
         ]);
+
     }
 }

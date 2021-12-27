@@ -26,6 +26,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::post('/send', [ChatController::class, 'send']);
     Route::post('/chatroom', [ChatController::class, 'list']);
     Route::post('/message', [ChatController::class, 'messages']);
+
+    Route::post('/wishlist', [VehicleController::class, 'wishlist']);
+    Route::post('/addwishlist', [VehicleController::class, 'insertWishlist']);
 });
 
 Route::post('/carlist', [VehicleController::class, 'carlist']);
