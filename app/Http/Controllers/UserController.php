@@ -59,7 +59,16 @@ class UserController extends Controller
     }
 
     public function getImage(Request $request){
-        return response()->file('storage/picture/profile/'.$request->user()->id.'.png');
+    //    return response()->asset('storage/picture/profile/'.$request->user()->id.'.png');
+       return asset('storage/picture/profile/'.$request->user()->id.'.png');
+    //    return response()->file('storage/picture/profile/'.$request->user()->id.'.png');
+
+        // return storage_path('picture/profile/'.$request->user()->id.'.png');
+        // $storagePath = storage_path('picture/profile/'.$request->user()->id.'.png');
+
+        // return make($storagePath)->response();
+        // return response()->$storagePath;
+        // return redirect($storagePath);
         //return response()->json(json_decode(file_get_contents('storage/picture/profile/'.$request->user()->id.'.png'), true),200); 
     }
    
