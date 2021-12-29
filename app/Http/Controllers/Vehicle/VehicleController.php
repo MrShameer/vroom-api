@@ -38,7 +38,7 @@ class VehicleController extends Controller
     }
 
     public function wishlist(Request $request){
-        $wishlist = Wishlist::where('user', '=', $request->user()->id)->with('vehicle:owner,plat,model,brand','vehicle.owner:id,name')->get('plat');
+        $wishlist = Wishlist::where('user', '=', $request->user()->id)->with('vehicle.owner:id,name')->get('plat');
         return Response::json($wishlist, 200);
     }
 
@@ -52,7 +52,7 @@ class VehicleController extends Controller
         }catch(QueryException $exception){
             return response()->json(['message' => 'Wishlist Already Exists'], 401);
         }
-        
+
         return response()->json(['message' => 'Wishlist Inserted'], 200);
     }
 }
