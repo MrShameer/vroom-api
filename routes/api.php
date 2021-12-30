@@ -7,6 +7,7 @@ use App\Http\Controllers\Vehicle\VehicleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\RatingController;
 
 Route::post('/register', [AuthController::class, 'register']);
 
@@ -31,5 +32,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 
     Route::post('/wishlist', [VehicleController::class, 'wishlist']);
     Route::post('/addwishlist', [VehicleController::class, 'insertWishlist']);
+
+    Route::post('/ratinglist', [RatingController::class, 'ratinglist']);
 });
 Route::post('/vehiclelist', [VehicleController::class, 'vehiclelist']);
