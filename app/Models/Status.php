@@ -11,6 +11,15 @@ class Status extends Model
 {
     use HasFactory;
     protected $table = 'status';
+    
+    protected $fillable = [
+        'lessee',
+        'plat',
+        'status',
+        'message',
+    ];
+
+    public $timestamps = false;
 
     public function vehicle()
     {

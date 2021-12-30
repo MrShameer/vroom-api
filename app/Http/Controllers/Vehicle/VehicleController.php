@@ -11,25 +11,14 @@ use Illuminate\Database\QueryException;
 
 class VehicleController extends Controller
 {
-    //
-    public function carlist(Request $request){
-        $vehicle = Vehicle::where('type', '=', 'car')->paginate(4);
-        //$vehicle = Vehicle::paginate(4);
-        return Response::json($vehicle, 200);
-    }
 
-    public function bikelist(Request $request){
-        $vehicle = Vehicle::where('type', '=', 'bike')->paginate(4);
-        return Response::json($vehicle, 200);
-    }
-
-    public function bicyclelist(Request $request){
-        $vehicle = Vehicle::where('type', '=', 'bicycle')->paginate(4);
-        return Response::json($vehicle, 200);
-    }
-
-    public function vanlist(Request $request){
-        $vehicle = Vehicle::where('type', '=', 'van')->paginate(4);
+    public function vehiclelist(Request $request){
+        if($request->type == 'all'){
+            $vehicle = Vehicle::with('owner:id,name')->paginate(4);
+        }
+        else{
+            $vehicle = Vehicle::where('type', '=', $request->type)->with('owner:id,name')->paginate(4);
+        }
         return Response::json($vehicle, 200);
     }
 

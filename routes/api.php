@@ -21,7 +21,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
         return $request->user();
     });
     Route::post('/getimage', [UserController::class, 'getImage']);
+
     Route::post('/status', [StatusController::class, 'list']);
+    Route::post('/request', [StatusController::class, 'send']);
 
     Route::post('/send', [ChatController::class, 'send']);
     Route::post('/chatroom', [ChatController::class, 'list']);
@@ -30,11 +32,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::post('/wishlist', [VehicleController::class, 'wishlist']);
     Route::post('/addwishlist', [VehicleController::class, 'insertWishlist']);
 });
-
-Route::post('/carlist', [VehicleController::class, 'carlist']);
-
-Route::post('/bikelist', [VehicleController::class, 'bikelist']);
-
-Route::post('/bicyclelist', [VehicleController::class, 'bicyclelist']);
-
-Route::post('/vanlist', [VehicleController::class, 'vanlist']);
+Route::post('/vehiclelist', [VehicleController::class, 'vehiclelist']);
