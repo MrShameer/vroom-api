@@ -19,8 +19,6 @@ class ChatController extends Controller
     public function send(Request $request){
         $fcm = User::where('id',$request['to'])->pluck('fcm')->first();
 
-        
-
         $chatroom = Chatrooms::where('id',$request['chatid'])->first();
         if($chatroom=== null){
             $chatroom = Chatrooms::create([
@@ -52,7 +50,7 @@ class ChatController extends Controller
         return $response;
     }
 
-    public function list(Request $request){//wait haven't clean the code yet
+    public function list(Request $request){//wait haven't clean the code yet, refer chatexists method below
         $id=$request->user()->id;
         $user_one = Chatrooms::where('user_two', $id)->with('user_one:id,name,email,phone','message')->get(['id','user_one']);
         $user_one = UserOneResource::collection($user_one);
@@ -64,5 +62,13 @@ class ChatController extends Controller
     public function messages(Request $request){ 
         $message = Message::where('chatroom', $request->id)->get(['id','sender','message','created_at']);
         return Response::json($message, 200);
+    }
+
+    public function chatexists(Request $request){
+        $chatroom = Chatrooms::where('user_one',$request->id)->where('user_two',$request->user()->id)->orWhere('user_one',$request->user()->id)->where('user_two',$request->id)->first();
+        if($chatroom===null){
+            return Response::json(false, 200);
+        }
+        return Response::json($chatroom, 200);
     }
 }

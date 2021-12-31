@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
     //    $this->call(UserSeeder::class);
     //   $this->call(VehicleSeeder::class);
-    //    $this->call(StatusSeeder::class);
+       $this->call(StatusSeeder::class);
     //    $this->call(ChatroomSeeder::class);
-       $this->call(WishlistSeeder::class);
+    //    $this->call(WishlistSeeder::class);
     }
 }

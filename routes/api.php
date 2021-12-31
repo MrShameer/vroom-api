@@ -25,10 +25,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 
     Route::post('/status', [StatusController::class, 'list']);
     Route::post('/request', [StatusController::class, 'send']);
+    Route::post('/lessorlist', [StatusController::class, 'lessorlist']);
 
     Route::post('/send', [ChatController::class, 'send']);
     Route::post('/chatroom', [ChatController::class, 'list']);
     Route::post('/message', [ChatController::class, 'messages']);
+    Route::post('/chatexists', [ChatController::class, 'chatexists']);
 
     Route::post('/wishlist', [VehicleController::class, 'wishlist']);
     Route::post('/addwishlist', [VehicleController::class, 'insertWishlist']);

@@ -16,6 +16,7 @@ class UserOneResource extends JsonResource
     {
         return [
             'chatid' => $this->id,
+            'id' => $this->user_one()->pluck('id')->first(),
             'name' => $this->user_one()->pluck('name')->first(),
             'phone' => $this->user_one()->pluck('phone')->first(),
             'message' => $this->message()->orderBy('updated_at')->pluck('message')->last(),

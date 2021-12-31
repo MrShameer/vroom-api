@@ -20,8 +20,14 @@ class CreateStatusTable extends Migration
             $table->foreign('plat')->references('plat')->on('vehicles')->onDelete('cascade');
             $table->enum('status', ['accepted', 'rejected', 'pending']);
             $table->mediumText('message')->nullable();
-            //$table->primary(['lessee', 'plat']);
-           //$table->primary(['lessee', 'plat']);
+            
+            $table->string('total');
+            $table->enum('payment_type', ['Online Banking', 'Cash On Delivery']);
+            $table->date('payment');
+            $table->date('pickup');
+            $table->date('return');
+            $table->string('location');
+            $table->enum('progress', ['paid', 'taken', 'returned']);
         });
     }
 

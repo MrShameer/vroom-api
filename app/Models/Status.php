@@ -26,4 +26,9 @@ class Status extends Model
         return $this->belongsTo(Vehicle::class, 'plat','plat');
     }
 
+    public function lessee()
+    {
+        return $this->belongsTo(User::class, 'lessee');
+    }
+
 }
