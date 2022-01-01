@@ -10,12 +10,6 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    //
-    // public function info(Request $request){
-    //     $info = User::where('type', '=', 'bike')->paginate(15);
-    //     //$vehicle = Vehicle::where('type', '=', 'car');
-    //     return Response::json($vehicle, 200);
-    // }
 
     public function info(Request $request){
         $user = Auth::user();
@@ -54,22 +48,16 @@ class UserController extends Controller
             }
      
             return response()->json(['file_uploaded'], 200);
-     
         }
     }
 
     public function getImage(Request $request){
-    //    return response()->asset('storage/picture/profile/'.$request->user()->id.'.png');
        return asset('storage/picture/profile/'.$request->user()->id.'.png');
-    //    return response()->file('storage/picture/profile/'.$request->user()->id.'.png');
+    }
 
-        // return storage_path('picture/profile/'.$request->user()->id.'.png');
-        // $storagePath = storage_path('picture/profile/'.$request->user()->id.'.png');
-
-        // return make($storagePath)->response();
-        // return response()->$storagePath;
-        // return redirect($storagePath);
-        //return response()->json(json_decode(file_get_contents('storage/picture/profile/'.$request->user()->id.'.png'), true),200); 
+    public function updateinfo(Request $request){
+        $user = User::where('id', $request->user()->id)->update([$request['column'] => $request['data']]);
+        return Response::json($user, 200);
     }
    
 }

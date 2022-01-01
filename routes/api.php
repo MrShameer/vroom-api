@@ -22,10 +22,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
         return $request->user();
     });
     Route::post('/getimage', [UserController::class, 'getImage']);
+    Route::post('/updateinfo', [UserController::class, 'updateinfo']);
 
     Route::post('/status', [StatusController::class, 'list']);
     Route::post('/request', [StatusController::class, 'send']);
-    Route::post('/lessorlist', [StatusController::class, 'lessorlist']);
+    Route::post('/lessorrequest', [StatusController::class, 'lessorrequest']);
 
     Route::post('/send', [ChatController::class, 'send']);
     Route::post('/chatroom', [ChatController::class, 'list']);
@@ -34,6 +35,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 
     Route::post('/wishlist', [VehicleController::class, 'wishlist']);
     Route::post('/addwishlist', [VehicleController::class, 'insertWishlist']);
+    Route::post('/lessorlist', [VehicleController::class, 'lessorlist']);
 
     Route::post('/ratinglist', [RatingController::class, 'ratinglist']);
 });

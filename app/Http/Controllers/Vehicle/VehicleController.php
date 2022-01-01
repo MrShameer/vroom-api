@@ -14,10 +14,10 @@ class VehicleController extends Controller
 
     public function vehiclelist(Request $request){
         if($request->type == 'all'){
-            $vehicle = Vehicle::with('owner:id,name')->paginate(4);
+            $vehicle = Vehicle::where('list', true)->with('owner:id,name')->paginate(4);
         }
         else{
-            $vehicle = Vehicle::where('type', '=', $request->type)->with('owner:id,name')->paginate(4);
+            $vehicle = Vehicle::where('list', true)->where('type', '=', $request->type)->with('owner:id,name')->paginate(4);
         }
         return Response::json($vehicle, 200);
     }
@@ -43,5 +43,10 @@ class VehicleController extends Controller
         }
 
         return response()->json(['message' => 'Wishlist Inserted'], 200);
+    }
+
+    public function lessorlist(Request $request){
+        $vehicle = Vehicle::where('owner', $request->user()->id)->where('list',  $request->boolean('list'))->get();
+        return Response::json($vehicle, 200);
     }
 }

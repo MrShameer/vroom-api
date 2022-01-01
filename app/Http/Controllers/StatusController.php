@@ -32,7 +32,7 @@ class StatusController extends Controller
         return response()->json(['message' => 'Sucessfully Booked'], 200);
     }
 
-    public function lessorlist(Request $request){
+    public function lessorrequest(Request $request){
         $id = Vehicle::where('owner',  $request->user()->id)->get('plat');
         $status = Status::whereIn('plat', $id)->where('status',$request['status'])->with('lessee:id,name','vehicle')->get();
         return Response::json($status, 200);

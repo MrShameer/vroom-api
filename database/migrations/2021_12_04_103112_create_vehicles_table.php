@@ -14,8 +14,6 @@ class CreateVehiclesTable extends Migration
     public function up()
     {
         Schema::create('vehicles', function (Blueprint $table) {
-            // $table->id();
-            // $table->timestamps();
             $table->foreignId('owner')->constrained('users')->onDelete('cascade');
             $table->string('plat')->primary();
             $table->enum('type', ['car', 'bike','bicycle','van']);
@@ -28,6 +26,7 @@ class CreateVehiclesTable extends Migration
             $table->integer('luggage');
             $table->double('gallon');
             $table->double('rent');
+            $table->boolean('list');
 
         });
     }
