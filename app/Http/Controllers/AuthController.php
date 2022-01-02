@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    //
     public function register(Request $request)
     {
         $validatedData = $request->validate([
@@ -48,7 +47,7 @@ class AuthController extends Controller
         if (!$user->hasVerifiedEmail()) {
             $user->markEmailAsVerified();
         }
-        return redirect()->to('/');
+        return redirect()->to('/verified');
     }
 
     public function resend() {
@@ -86,12 +85,9 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
-            // 'id' => $user->id,
             'info' => $user,
             'access_token' => $token,
             'token_type' => 'Bearer',
-            // 'role' => $user->role,
-            // 'picture' => $user->picture,
         ]);
     }
 

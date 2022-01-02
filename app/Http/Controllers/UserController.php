@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-
     public function info(Request $request){
         $user = Auth::user();
         return ($user);
@@ -20,35 +19,17 @@ class UserController extends Controller
         if(!$request->hasFile('image')) {
             return response()->json(['upload_file_not_found'], 400);
         }
-     
-        $allowedfileExtension=['jpg','png'];
-        $files = $request->file('image'); 
-        $errors = [];
-     
-        foreach ($files as $file) {      
-     
-            $extension = $file->getClientOriginalExtension();
-     
-            $check = in_array($extension,$allowedfileExtension);
-     
-            if($check) {
-                foreach($request->image as $mediaFiles) {
-     
-                    $path = $mediaFiles->store('public/images');
-                    $name = $mediaFiles->user()->id;
-          
-                    //store image file into directory and db
-                    $save = new Image();
-                    $save->title = $name;
-                    $save->path = $path;
-                    $save->save();
-                }
-            } else {
-                return response()->json(['invalid_file_format'], 422);
-            }
-     
-            return response()->json(['file_uploaded'], 200);
+        $file = $request->file('image');
+        if(!$file->isValid()) {
+            return response()->json(['invalid_file_upload'], 400);
         }
+        $check = in_array($file->getClientOriginalExtension(),['jpg','png']);
+        if(!$check) {
+            return response()->json(['invalid_file_extension'], 400);
+        }
+        $path = public_path() . '/storage/picture/'. $request['path'];
+        $file->move($path, $file->getClientOriginalName());
+        return response()->json(['success'], 200);
     }
 
     public function getImage(Request $request){
@@ -59,5 +40,4 @@ class UserController extends Controller
         $user = User::where('id', $request->user()->id)->update([$request['column'] => $request['data']]);
         return Response::json($user, 200);
     }
-   
 }
