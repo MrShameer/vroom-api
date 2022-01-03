@@ -29,6 +29,12 @@ class UserController extends Controller
         }
         $path = public_path() . '/storage/picture/'. $request['path'];
         $file->move($path, $file->getClientOriginalName());
+        if($request['path'] == 'identification'){
+            $user = User::where('id', $request->user()->id)->update(['icverified' => 'review']);
+        }
+        elseif($request['path'] == 'license'){
+            $user = User::where('id', $request->user()->id)->update(['dlverified' => 'review']);
+        }
         return response()->json(['success'], 200);
     }
 

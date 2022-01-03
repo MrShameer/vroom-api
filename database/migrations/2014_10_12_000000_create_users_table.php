@@ -23,7 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('fcm')->nullable();
-            // $table->enum('picture', ['jpg', 'png'])->nullable();
+            $table->enum('icverified', ['missing','review', 'done'])->default('missing');
+            $table->enum('dlverified', ['missing','review', 'done'])->default('missing');
             $table->rememberToken();
             $table->timestamps();
         });
