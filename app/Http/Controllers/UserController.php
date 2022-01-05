@@ -44,6 +44,6 @@ class UserController extends Controller
 
     public function updateinfo(Request $request){
         $user = User::where('id', $request->user()->id)->update([$request['column'] => $request['data']]);
-        return Response::json($user, 200);
+        return response()->json(['success'], 200);
     }
 }
