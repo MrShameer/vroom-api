@@ -108,21 +108,29 @@
             <div class="step">
               <span class="number">01</span>
               <h3>Sign Up</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
+              <p>Sign up for Vroom account and find your vehicle 
+                Create an account to start renting vehicle and viewing updates with lessor. 
+                It's easy to register with automation system. 
+                Sign up now</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="step">
               <span class="number">02</span>
               <h3>Create Profile</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
+              <p>Set up your profile that consist of information about you. 
+                Help user to get a glipmse of needs through your profile. 
+                Learn to create a professional profile to reach more lessee</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="step">
               <span class="number">03</span>
               <h3>Enjoy the app</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
+              <p>Hundreds of vehicles available with variety of choices to fulfill your dream. 
+                Choose your transport and drive with simple steps without any problems. 
+                Anytime, anywhere, across your devices. 
+                Download now</p>
             </div>
           </div>
         </div>
@@ -134,9 +142,11 @@
         <div class="row align-items-center">
           <div class="col-md-4 me-auto">
             <h2 class="mb-4">Seamlessly Communicate</h2>
-            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur at reprehenderit optio,
-              laudantium eius quod, eum maxime molestiae porro omnis. Dolores aspernatur delectus impedit incidunt
-              dolore mollitia esse natus beatae.</p>
+            <p class="mb-4">No breaks or gaps in your interaction with Vroom users. 
+              Free to roam around the app while stay connected without any disturbance to the on going session. 
+              Consistent service, integrated real-time data, and feel the flow of connections. 
+              Chat built-in system for smooth conversations between lessor and lessee. 
+              Chat now</p>
             <p><a href="#" class="btn btn-primary">Download Now</a></p>
           </div>
           <div class="col-md-6" data-aos="fade-left">
@@ -151,9 +161,10 @@
         <div class="row align-items-center">
           <div class="col-md-4 ms-auto order-2">
             <h2 class="mb-4">Gather Feedback</h2>
-            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur at reprehenderit optio,
-              laudantium eius quod, eum maxime molestiae porro omnis. Dolores aspernatur delectus impedit incidunt
-              dolore mollitia esse natus beatae.</p>
+            <p class="mb-4">We value your insights of the app and inputs shared by Vroom community. 
+              We improve users experiences with your information by solving any issues. 
+              Empower positive changes within our circle for better future. 
+              Brings together the team for better performance and keeps everyone on track</p>
             <p><a href="#" class="btn btn-primary">Download Now</a></p>
           </div>
           <div class="col-md-6" data-aos="fade-right">
@@ -277,8 +288,9 @@
       <div class="row">
         <div class="col-md-4 mb-4 mb-md-0">
           <h3>About Vroom</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquam aperiam
-            dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi.</p>
+          <p>Vroom is project developed by outstanding university student with hope to 
+            expand it to international level by provide useful and 
+            interactive rental system with easy and seamless uses of features</p>
           <p class="social">
             <a href="https://github.com/MrShameer/Vroom"><span class="bi bi-github"></span></a>
           </p>
