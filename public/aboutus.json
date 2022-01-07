@@ -1,0 +1,47 @@
+[
+    {
+        "Name" : "Haikal",
+        "About" : "I love to be able to manage people",
+        "Role" : "Project Manager",
+        "Email" : "a176875@siswa.ukm.edu.my",
+        "Github" : "https://github.com/A-Haikal",
+        "Instagram" : "https://www.instagram.com/__ahaikal/",
+        "Picture" : "assets/img/team/haikal.jpg"
+    },
+    {
+        "Name" : "Miza",
+        "About" : "I love to scrum",
+        "Role" : "Scrum Master",
+        "Email" : "a174300@siswa.ukm.edu.my",
+        "Github" : "https://github.com/mizawahab",
+        "Instagram" : "https://www.instagram.com/miza.wahab26/",
+        "Picture" : "assets/img/team/miza.jpg"
+    },
+    {
+        "Name" : "Anwar",
+        "About" : "Backend is where i live",
+        "Role" : "Backend Developer",
+        "Email" : "a177016@siswa.ukm.edu.my",
+        "Github" : "https://github.com/AnwarBujangHuat",
+        "Instagram" : "https://www.instagram.com/anwarchong/",
+        "Picture" : "assets/img/team/anwar.jpg"
+    },
+    {
+        "Name" : "Shameer",
+        "About" : "Fullstack? More like piece of cake",
+        "Role" : "Fullstack Developer",
+        "Email" : "a173586@siswa.ukm.edu.my",
+        "Github" : "https://github.com/MrShameer",
+        "Instagram" : "https://www.instagram.com/mrshameer/",
+        "Picture" : "assets/img/team/shameer.jpg"
+    },
+    {
+        "Name" : "Hamdi",
+        "About" : "'Hi, this is the frontman speaking' - Squid Game",
+        "Role" : "Frontend Developer",
+        "Email" : "a173601@siswa.ukm.edu.my",
+        "Github" : "https://github.com/Humdee",
+        "Instagram" : "https://www.instagram.com/_humdee/",
+        "Picture" : "assets/img/team/hamdi.jpg"
+    }
+]

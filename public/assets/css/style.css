@@ -432,3 +432,14 @@ section {
 .social a i {
   line-height: 0;
 }
+
+
+.modal-dialog{
+  max-width: 80% ;
+}
+
+.card-solid{
+  background: linear-gradient(to left, #d5a3e7 0%, #825fa3 100%) !important;
+  /* background: rgb(0, 0, 0) !important; */
+  border: none;
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "Name" : "Jean Doe",
+        "Title" : "Excellent App!",
+        "Description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquamaperiam dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi,provident voluptates consectetur maiores quos.",
+        "Star" : 4,
+        "Picture" : "assets/img/person_1.jpg"
+    },
+    {
+        "Name" : "Johan Smith",
+        "Title" : "This App is easy to use!",
+        "Description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquamaperiam dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi,provident voluptates consectetur maiores quos.",
+        "Star" : 5,
+        "Picture" : "assets/img/person_2.jpg"
+    },
+    {
+        "Name" : "Jean Thunberg",
+        "Title" : "Awesome functionality!",
+        "Description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquamaperiam dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi,provident voluptates consectetur maiores quos.",
+        "Star" : 3,
+        "Picture" : "assets/img/person_3.jpg"
+    }
+]
