@@ -17,6 +17,13 @@ class Status extends Model
         'plat',
         'status',
         'message',
+        'total',
+        'payment_type',
+        'payment',
+        'pickup',
+        'return',
+        'location',
+        'progress',
     ];
 
     public $timestamps = false;

@@ -23,12 +23,19 @@ class StatusController extends Controller
             'lessee' => $request->user()->id,
             'plat' => $request['plat'],
             'status' => 'pending',
+            'total' => $request['total'],
+            'payment_type' => $request['payment_type'],
+            'payment' => $request['payment'],
+            'pickup' => $request['pickup'],
+            'return' => $request['return'],
+            'location' => $request['location'],
+            'progress'=> $request['progress'],
             ]);
 
         }catch(QueryException $exception){
             return response()->json(['message' => 'Already Booked'], 401);
         }
-
+        
         return response()->json(['message' => 'Sucessfully Booked'], 200);
     }
 
