@@ -17,6 +17,7 @@ class CreateWishlistTable extends Migration
             $table->foreignId('user')->constrained('users')->onDelete('cascade');
             $table->string('plat');
             $table->foreign('plat')->references('plat')->on('vehicles')->onDelete('cascade');
+            $table->primary(['user', 'plat']);
         });
     }
 

@@ -14,21 +14,6 @@ class VehicleSeeder extends Seeder
      */
     public function run()
     {
-         // $table->foreignId('owner')->constrained('users')->onDelete('cascade');
-        // $table->string('plat')->unique();
-        // $table->enum('type', ['car', 'bike','bicycle','van']);
-        // $table->string('brand');
-        // $table->string('model');
-        // $table->string('insurance');
-        // $table->integer('age');
-        // $table->integer('passanger');
-        // $table->integer('door');
-        // $table->integer('luggage');
-        // $table->integer('gallon');
-        // $table->integer('rent');
-
-        //
-        //\App\Models\Vehicle::factory(10)->create();
         DB::table('vehicles')->insert([
             'owner' => '8',
             'plat' => 'DSDF56', 

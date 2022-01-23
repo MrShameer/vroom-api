@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role', ['lessor', 'lessee'])->default('lessee');
-            $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('fcm')->nullable();
             $table->enum('icverified', ['missing','review', 'done'])->default('missing');

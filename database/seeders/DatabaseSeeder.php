@@ -1,7 +1,7 @@
 <?php
-
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,11 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-    //    $this->call(UserSeeder::class);
-    //   $this->call(VehicleSeeder::class);
-       $this->call(StatusSeeder::class);
-    //    $this->call(ChatroomSeeder::class);
-    //    $this->call(WishlistSeeder::class);
+        $this -> call([
+            UserSeeder::class,
+            VehicleSeeder::class,
+            StatusSeeder::class,
+            RatingSeeder::class,
+            ChatroomSeeder::class,
+            WishlistSeeder::class,
+        ]);
     }
 }

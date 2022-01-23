@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Response;
@@ -10,6 +12,17 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    /**
+     * Display a listing of the users
+     *
+     * @param  \App\Models\User  $model
+     * @return \Illuminate\View\View
+     */
+    public function index(User $model)
+    {
+        return view('users.index');
+    }
+
     public function info(Request $request){
         $user = Auth::user();
         return ($user);
