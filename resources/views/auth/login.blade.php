@@ -25,7 +25,7 @@
                             <small>
                                     Sign in with these credentials:
                                     <br>
-                                    Username <strong>admin@vroom.com</strong> Password: <strong>12345678</strong>
+                                    Username <strong>admin@vroom.com</strong> Password: <strong>secret</strong>
                             </small>
                         </div>
                         <form role="form" method="POST" action="{{ route('login') }}">

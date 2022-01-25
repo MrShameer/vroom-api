@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
+use App\Models\location;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -85,10 +86,12 @@ class AuthController extends Controller
 
         $token = $user->createToken('auth_token')->plainTextToken;
 
+        $location = location::where('lessor', $request->user()->id)->get('address');
         return response()->json([
             'info' => $user,
             'access_token' => $token,
             'token_type' => 'Bearer',
+            'location' => $location
         ]);
     }
 
