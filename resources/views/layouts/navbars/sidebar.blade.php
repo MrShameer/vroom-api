@@ -104,12 +104,18 @@
                         </ul>
                     </div>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('icons') }}">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Icons') }}
+                    <a class="nav-link" href="{{ route('pages.userverification') }}">
+                        <i class="ni ni-single-02 text-blue"></i> {{ __('User Verification') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('pages.userverification') }}">
+                        <i class="ni ni-bus-front-12 text-blue"></i> {{ __('Vehicle Verification') }}
+                    </a>
+                </li>
+
+
                 <li class="nav-item ">
                     <a class="nav-link" href="{{ route('map') }}">
                         <i class="ni ni-pin-3 text-orange"></i> {{ __('Maps') }}

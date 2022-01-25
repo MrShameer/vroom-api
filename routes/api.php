@@ -8,6 +8,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\LocationController;
+
 
 Route::post('/register', [AuthController::class, 'register']);
 
@@ -38,5 +40,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::post('/lessorlist', [VehicleController::class, 'lessorlist']);
 
     Route::post('/ratinglist', [RatingController::class, 'ratinglist']);
+
+    Route::post('/setlocation', [LocationController::class, 'setlocation']);
 });
 Route::post('/vehiclelist', [VehicleController::class, 'vehiclelist']);

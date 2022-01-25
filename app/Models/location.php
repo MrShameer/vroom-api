@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class location extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $fillable = [
         'lessor',
         'latitude',
         'longitude',
+        'address',
     ];
 }

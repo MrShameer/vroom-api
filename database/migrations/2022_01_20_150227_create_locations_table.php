@@ -17,6 +17,8 @@ class CreateLocationsTable extends Migration
             $table->foreignId('lessor')->constrained('users')->onDelete('cascade');
             $table->double('latitude');
             $table->double('longitude');
+            $table->string('address');
+            $table->primary(['latitude', 'longitude']);
         });
     }
 

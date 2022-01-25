@@ -28,9 +28,18 @@ class UserSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'name' => 'Admin Admin',
-            'email' => 'admin@argon.com',
+            'email' => 'admin@vroom.com',
             'email_verified_at' => now(),
             'password' => Hash::make('secret'),
+            'role' => 'admin',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Mohamad Anwar Bin Bujang',
+            'email' => 'anwarbinbujang@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('12345678'),
             'role' => 'lessee',
             'created_at' => now(),
             'updated_at' => now()

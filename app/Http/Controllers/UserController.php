@@ -59,4 +59,10 @@ class UserController extends Controller
         $user = User::where('id', $request->user()->id)->update([$request['column'] => $request['data']]);
         return response()->json(['success'], 200);
     }
+
+    public function userverification(){
+        $user = User::whereNotNull('phone')->where('icverified', 'review')->where('dlverified', 'review')->where('role','lessee')->get();
+        return view('pages.userverification', compact('user'));
+    }
+
 }

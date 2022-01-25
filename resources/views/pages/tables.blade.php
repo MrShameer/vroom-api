@@ -1,18 +1,4 @@
-<!--
-=========================================================
-* Argon Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
 
-
-* Copyright  Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
-
-
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html>
 
@@ -76,7 +62,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('icons') }}">
+                <a class="nav-link" href="">
                     <i class="ni ni-planet text-blue"></i> {{ __('Icons') }}
                 </a>
             </li>
