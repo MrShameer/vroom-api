@@ -21,7 +21,7 @@
 		<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
 			<div class="container-fluid">
 				<div class="alert alert-danger" role="alert">
-					<strong>This is a PRO feature!</strong>
+					<strong>You have reviwed {{10}} customer</strong>
 				</div>
 				<div class="header-body">
 					<!-- Card stats -->
@@ -123,9 +123,6 @@
 								<div class="col-8">
 									<h3 class="mb-0">Users</h3>
 								</div>
-								<div class="col-4 text-right">
-									<a href="" class="btn btn-sm btn-primary">Add user</a>
-								</div>
 							</div>
 						</div>
 						
@@ -146,7 +143,7 @@
 									<tr>
 										<td>Admin Admin</td>
 										<td>
-											<a href="mailto:admin@argon.com">admin@argon.com</a>
+											<a href="mailto:admin@argon.com">admin@vroom.com</a>
 										</td>
 										<td>12/02/2020 11:00</td>
 										<td class="text-right">

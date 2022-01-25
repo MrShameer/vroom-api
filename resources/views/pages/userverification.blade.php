@@ -4,15 +4,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<title>{{ config('app.name', 'Vroom Dashboard') }}</title>
-
-	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	<!-- Icons -->
 	<link href="../assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
 	<link href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-	<!-- Argon CSS -->
+
 	<link type="text/css" href="../assets/css/argon.css?v=1.0.0" rel="stylesheet">
 </head>
 @section('content')
@@ -24,8 +20,7 @@
 					<strong>There are {{$user->count()}} pending verifications</strong>
 				</div>
 				<div class="header-body">
-					<!-- Card stats -->
-					
+
 				</div>
 			</div>
 		</div>
