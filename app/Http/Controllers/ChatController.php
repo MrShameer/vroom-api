@@ -39,7 +39,7 @@ class ChatController extends Controller
                  'to' => $fcm,
                  'data' => [
                      'title' => $chatroom->id,
-                     'body' => $request['message'],
+                     'body' => $request->user()->id,
                  ],
                  'notification' => [
                      'title' => $request->user()->name,
