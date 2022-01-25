@@ -7,10 +7,10 @@
 	<title>Vroom - Vehicle Rental Platform</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 	<link href="assets/vendor/aos/aos.css" rel="stylesheet">
-	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 	<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="../assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -18,6 +18,9 @@
 		<div class="container d-flex justify-content-between align-items-center">
 			<div class="logo">
 				<h1><a href="/">Vroom</a></h1>
+			</div>
+			<div class="logo">
+				<h1><a href="/home">Dashboard</a></h1>
 			</div>
 		</div>
 	</header>
@@ -316,10 +319,10 @@
 
 	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-	<script src="assets/vendor/aos/aos.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="../assets/vendor/aos/aos.js"></script>
+	<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<script src="../assets/js/main.js"></script>
 
 </body>
 </html>

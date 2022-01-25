@@ -18,7 +18,7 @@ class CreateStatusTable extends Migration
             $table->foreignId('lessee')->constrained('users')->onDelete('cascade');
             $table->string('plat');
             $table->foreign('plat')->references('plat')->on('vehicles')->onDelete('cascade');
-            $table->enum('status', ['accepted', 'rejected', 'pending']);
+            $table->enum('status', ['accepted', 'rejected', 'pending'])->default('pending'); //default pending
             $table->mediumText('message')->nullable();
             
             $table->string('total');
@@ -27,7 +27,7 @@ class CreateStatusTable extends Migration
             $table->date('pickup');
             $table->date('return');
             $table->string('location');
-            $table->enum('progress', ['paid', 'taken', 'returned']);
+            $table->enum('progress', ['paid', 'taken', 'returned', 'unpaid'])->default('unpaid'); //default unpaid
         });
     }
 

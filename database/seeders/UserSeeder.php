@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -13,9 +15,35 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //
         \App\Models\User::factory(10)->create();
-       // factory(App\Models\User::class,5)->create();
+        DB::table('users')->insert([
+            'name' => 'shameer',
+            'email' => 'familyzura@gmail.com', 
+            'email_verified_at' => now(),
+            'password' => Hash::make('12345678'),
+            'role' => 'lessee',
+            'phone' => '01140448922',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Admin Admin',
+            'email' => 'admin@vroom.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('secret'),
+            'role' => 'admin',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Mohamad Anwar Bin Bujang',
+            'email' => 'anwarbinbujang@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('12345678'),
+            'role' => 'lessee',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
     }
 }
 

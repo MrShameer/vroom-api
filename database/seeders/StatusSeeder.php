@@ -14,45 +14,57 @@ class StatusSeeder extends Seeder
      */
     public function run()
     {
-            // $table->id();
-            // $table->foreignId('lessee')->constrained('users')->onDelete('cascade');
-            // $table->foreignId('plat')->constrained('users')->onDelete('cascade');
-            // $table->enum('status', ['accepted', 'rejected', 'pending']);
-            // $table->mediumText('message')->nullable();
-
         DB::table('status')->insert([
-            'lessee' => '11',
-            'plat' => 'JMK567', 
-            'status' => 'accepted',
-            'message' => 'otak ko la kereta rosak dah'
-        ]);
-
-        DB::table('status')->insert([
-            'lessee' => '1',
+            'lessee' => '7',
             'plat' => 'JMK453', 
-            'status' => 'rejected',
-            'message' => 'otak ko la kereta rosak dah'
-        ]);
-
-        DB::table('status')->insert([
-            'lessee' => '11',
-            'plat' => 'KJS345', 
             'status' => 'accepted',
-            'message' => 'otak ko la kereta rosak dah'
-        ]);
-
-        DB::table('status')->insert([
-            'lessee' => '11',
-            'plat' => 'FDG346', 
-            'status' => 'rejected',
-            'message' => 'wth bro'
+            'message' => 'otak ko la kereta rosak dah',
+            'total' => '345',
+            'payment_type' => 'Online Banking',
+            'payment' => now(),
+            'pickup' => now(),
+            'return' => now(),
+            'location' => 'Jakarta',
+            'progress' => 'paid',
         ]);
 
         DB::table('status')->insert([
             'lessee' => '11',
             'plat' => 'JMK453', 
+            'status' => 'rejected',
+            'message' => 'otak ko la kereta rosak dah',
+            'total' => '123',
+            'payment_type' => 'Online Banking',
+            'payment' => now(),
+            'pickup' => now(),
+            'return' => now(),
+            'location' => 'Jakarta',
+        ]);
+
+        DB::table('status')->insert([
+            'lessee' => '11',
+            'plat' => 'QWE234', 
             'status' => 'pending',
-            'message' => 'Jap Eh'
+            'total' => '1223',
+            'payment_type' => 'Online Banking',
+            'payment' => now(),
+            'pickup' => now(),
+            'return' => now(),
+            'location' => 'Jakarta',
+        ]);
+
+        DB::table('status')->insert([
+            'lessee' => '11',
+            'plat' => 'DSDF56', 
+            'status' => 'pending',
+            'message' => 'otak ko la kereta rosak dah',
+            'total' => '1243',
+            'payment_type' => 'Online Banking',
+            'payment' => now(),
+            'pickup' => now(),
+            'return' => now(),
+            'location' => 'Jakarta',
+            'progress' => 'paid',
         ]);
     }
 }
