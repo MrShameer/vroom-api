@@ -105,12 +105,12 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pages.userverification') }}">
+                    <a class="nav-link {{ (request()->routeIs('pages.userverification') ? 'active' : '') }}" href="{{ route('pages.userverification') }}">
                         <i class="ni ni-single-02 text-blue"></i> {{ __('User Verification') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pages.userverification') }}">
+                    <a class="nav-link {{ (request()->routeIs('pages.vehicleverification') ? 'active' : '') }}" href="{{ route('pages.vehicleverification') }}">
                         <i class="ni ni-bus-front-12 text-blue"></i> {{ __('Vehicle Verification') }}
                     </a>
                 </li>

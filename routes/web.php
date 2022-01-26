@@ -32,7 +32,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade'); 
 	Route::get('map', function () {return view('pages.maps');})->name('map');
 	Route::get('userverification', ['as' => 'pages.userverification', 'uses' => 'UserController@userverification']);
+	Route::get('vehicleverification', ['as' => 'pages.vehicleverification', 'uses' => 'VehicleController@vehicleverification']);
+	Route::get('userverification/{id}', ['as' => 'verifyuser', 'uses' => 'UserController@verifyuser']);
+	Route::get('vehicleverification/{plat}', ['as' => 'verifyvehicle', 'uses' => 'VehicleController@verifyvehicle']);
 	Route::get('table-list', function () {return view('pages.tables');})->name('table');
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
-

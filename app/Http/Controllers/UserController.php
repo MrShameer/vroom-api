@@ -65,4 +65,9 @@ class UserController extends Controller
         return view('pages.userverification', compact('user'));
     }
 
+    public function verifyuser($id){
+        User::where('id',$id)->update(['icverified' => 'done','dlverified' => 'done']);
+        return $this->userverification();
+    }
+
 }

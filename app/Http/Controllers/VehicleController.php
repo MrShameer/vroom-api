@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Vehicle;
+namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Vehicle;
 use App\Models\Wishlist;
@@ -14,10 +14,10 @@ class VehicleController extends Controller
 
     public function vehiclelist(Request $request){
         if($request->type == 'all'){
-            $vehicle = Vehicle::where('list', true)->with('owner:id,name')->paginate(4);
+            $vehicle = Vehicle::where('list', true)->where('verify', 'verified')->with('owner:id,name')->paginate(4);
         }
         else{
-            $vehicle = Vehicle::where('list', true)->where('type', '=', $request->type)->with('owner:id,name')->paginate(4);
+            $vehicle = Vehicle::where('list', true)->where('verify', 'verified')->where('type', '=', $request->type)->with('owner:id,name')->paginate(4);
         }
         return Response::json($vehicle, 200);
     }
@@ -77,5 +77,15 @@ class VehicleController extends Controller
     public function lessorlist(Request $request){
         $vehicle = Vehicle::where('owner', $request->user()->id)->where('list',  $request->boolean('list'))->get();
         return Response::json($vehicle, 200);
+    }
+
+    public function vehicleverification(){
+        $vehicle = Vehicle::where('verify', 'unverified')->where('list',true)->get();
+        return view('pages.userverification', compact('vehicle'));
+    }
+
+    public function verifyvehicle($plat){
+        Vehicle::where('plat',$plat)->update(['verify' => 'verified']);
+        return $this->vehicleverification();
     }
 }

@@ -9,6 +9,7 @@ use App\Models\User;
 class Vehicle extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     public function owner()
     {
