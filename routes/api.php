@@ -39,6 +39,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::post('/addwishlist', [VehicleController::class, 'insertWishlist']);
     Route::post('/lessorlist', [VehicleController::class, 'lessorlist']);
 
+    Route::post('/insertvehicle', [VehicleController::class, 'insert']);
+
     Route::post('/ratinglist', [RatingController::class, 'ratinglist']);
 
     Route::post('/setlocation', [LocationController::class, 'setlocation']);

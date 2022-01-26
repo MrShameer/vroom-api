@@ -29,7 +29,6 @@ class StatusController extends Controller
             'pickup' => $request['pickup'],
             'return' => $request['return'],
             'location' => $request['location'],
-            'progress'=> $request['progress'],
             ]);
 
         }catch(QueryException $exception){
