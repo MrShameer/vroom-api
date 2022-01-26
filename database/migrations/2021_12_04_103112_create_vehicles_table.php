@@ -26,8 +26,7 @@ class CreateVehiclesTable extends Migration
             $table->integer('luggage');
             $table->double('gallon');
             $table->double('rent');
-            $table->boolean('list');
-
+            $table->boolean('list')->default(0);
         });
     }
 

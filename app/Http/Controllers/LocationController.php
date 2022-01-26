@@ -11,8 +11,8 @@ class LocationController extends Controller
     public function setlocation(Request $request){
         $location = location::updateOrCreate([
             'lessor' => $request->user()->id,
-            'latitude' => $request['latitude'],
-            'longitude' => $request['longitude'],
+            'latitude' => doubleval($request['latitude']),
+            'longitude' => doubleval($request['longitude']),
             'address' => $request['address'],
             ]);
             return response()->json(['Sucessfully Saved'], 200);

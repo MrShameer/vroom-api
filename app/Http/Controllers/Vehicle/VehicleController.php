@@ -23,6 +23,35 @@ class VehicleController extends Controller
     }
 
     public function insert(Request $request){
+        $vehicle = Vehicle::create([
+            'owner' => $request->user()->id,
+            'plat' => $request['plat'],
+            'type' => $request['type'],
+            'brand' => $request['brand'],
+            'model' => $request['model'],
+            'insurance' => $request['insurance'],
+            'age' => $request['age'],
+            'passenger' => $request['passenger'],
+            'door' => $request['door'],
+            'luggage' => $request['luggage'],
+            'gallon' => $request['gallon'],
+            'rent' => $request['rent'],
+            ]);
+
+        if(!$request->hasFile('image')) {
+            return response()->json(['upload_file_not_found'], 400);
+        }
+        $file = $request->file('image');
+        if(!$file->isValid()) {
+            return response()->json(['invalid_file_upload'], 400);
+        }
+        $check = in_array($file->getClientOriginalExtension(),['jpg','png']);
+        if(!$check) {
+            return response()->json(['invalid_file_extension'], 400);
+        }
+        $path = public_path() . '/storage/picture/vehicle';
+        $file->move($path, $file->getClientOriginalName());
+        return response()->json(['success'], 200);
         
     }
 
