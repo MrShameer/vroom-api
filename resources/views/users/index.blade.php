@@ -21,7 +21,7 @@
 		<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
 			<div class="container-fluid">
 				<div class="alert alert-danger" role="alert">
-					<strong>You have reviwed {{10}} customer</strong>
+					<strong>You have reviewed {{10}} customer</strong>
 				</div>
 				<div class="header-body">
 					<!-- Card stats -->
