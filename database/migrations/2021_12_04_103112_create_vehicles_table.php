@@ -27,7 +27,7 @@ class CreateVehiclesTable extends Migration
             $table->double('gallon');
             $table->double('rent');
             $table->boolean('list')->default(0);
-            $table->enum('verify,', ['verified', 'unverified'])->default('unverified');
+            $table->enum('verify', ['verified', 'unverified'])->default('unverified');
         });
     }
 
